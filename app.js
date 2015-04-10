@@ -26,8 +26,8 @@ var passport = require('passport');
 //var express       = require('express');
 //var expressSession = require('express-session');
 //app.use(expressSession({secret: 'mySecretKey'}));
-app.use(passport.initialize());
-app.use(passport.session());
+//app.use(passport.initialize());
+//app.use(passport.session());
 
 /*var passport = require('passport');
 var expressSession = require('express-session');
