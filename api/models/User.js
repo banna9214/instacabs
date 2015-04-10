@@ -1,13 +1,14 @@
-var bcrypt = require('bcrypt');
+var passwordHash = require('password-hash');
 module.exports = {
-    schema: true, 
+    schema: true,
     attributes: {
-        id: {
-            type: 'int'
-        },
-        name: {
+        first_name: {
             type: 'string',
-            maxLength: 100
+            maxLength: 75
+        },
+        last_name: {
+            type: 'string',
+            maxLength: 75
         },
         email: {
             type: 'string',
@@ -19,19 +20,16 @@ module.exports = {
             type: 'string',
             required: true
         },
-        country: {
+        gender: {
             type: 'string'
         },
-        state: {
+        contact_no: {
             type: 'string'
         },
-        city: {
+        profile_pic: {
             type: 'string'
         },
-        phone: {
-            type: 'string'
-        },
-        mobile: {
+        language: {
             type: 'string'
         },
         status: {
@@ -62,12 +60,7 @@ module.exports = {
         }
     },
     beforeCreate: function (values, next) {
-        bcrypt.hash(values.password, 10, function (err, hash) {
-            if (err) {
-                return next(err);
-            }
-            values.password = hash;
-            next();
-        });
+        values.password = passwordHash.generate(values.password);
+        next();
     }
 };

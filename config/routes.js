@@ -51,6 +51,26 @@ module.exports.routes = {
         controller: 'User',
         action: 'customers'
     },
+    '/admin/customers/edit': {
+        controller: 'User',
+        action: 'edit_customer'
+    },
+    '/admin/drivers/edit': {
+        controller: 'User',
+        action: 'edit_driver'
+    },
+    '/admin/customers/delete': {
+        controller: 'User',
+        action: 'delete_customer'
+    },
+    '/admin/drivers/delete': {
+        controller: 'User',
+        action: 'delete_driver'
+    },
+    '/admin/companies/delete': {
+        controller: 'User',
+        action: 'delete_company'
+    },
     'get /admin/companies': {
         controller: 'User',
         action: 'companies'

@@ -1,6 +1,6 @@
 var passport = require('passport'),
         LocalStrategy = require('passport-local').Strategy,
-        bcrypt = require('bcrypt');
+        passwordHash = require('password-hash');
 
 passport.serializeUser(function (user, done) {
     done(null, user.email);
@@ -18,15 +18,29 @@ passport.use(new LocalStrategy({
 },
 function (email, password, done) {
 
-    User.findOne({email: email,user_type : 'A'}, function (err, user) {
+    User.findOne({email: email, user_type: 'A'}, function (err, user) {
         if (err) {
             return done(err);
         }
         if (!user) {
             return done(null, false, {message: 'Username not found.'});
         }
-
-        bcrypt.compare(password, user.password, function (err, res) {
+        var is_verified = passwordHash.verify(password, user.password);
+        if (is_verified == false) {
+            return done(null, false, {
+                message: 'Invalid Password entered'
+            });
+        } else {
+            var returnUser = {
+                email: user.email,
+                createdAt: user.createdAt,
+                id: user.id
+            };
+            return done(null, returnUser, {
+                message: 'Logged In Successfully'
+            });
+        }
+        /*passwordHash.verify(password, user.password, function (err, res) {
             if (!res)
                 return done(null, false, {
                     message: 'Invalid Password entered'
@@ -39,7 +53,7 @@ function (email, password, done) {
             return done(null, returnUser, {
                 message: 'Logged In Successfully'
             });
-        });
+        });*/
     });
 }
 ));

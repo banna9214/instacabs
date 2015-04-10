@@ -14,9 +14,6 @@ module.exports = {
                     }
                     return res.redirect('/');
                 }
-                req.session.flash = {
-                    success: info.message,
-                }
                 return res.redirect('/admin/dashboard');
             });
         })(req, res);

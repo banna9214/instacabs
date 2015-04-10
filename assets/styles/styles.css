@@ -11354,3 +11354,7 @@ td.small-width {
 }
 div.msg_error{width:98%; padding: 5px 4px; font-size:13px; color:#000;background-color: #ffcccc;border:1px solid #999; text-align: center}
 div.msg_success{width:98%; padding: 5px 4px; font-size:13px; color:#fff;background-color: #339900;border:1px solid #999;text-align: center;}
+.pull-left_form {
+    float: left;
+    margin-left: 70px;
+}

@@ -37,16 +37,7 @@
                 </div>
                 <!-- start: LOGIN BOX -->
                 <div class="box-login">
-                    <% if (req.session.flash && req.session.flash.error) { %>
-                    <div class="msg_error">
-                        <%= req.session.flash.error%>
-                    </div>
-                    <% } %>
-                    <% if (req.session.flash && req.session.flash.success) { %>
-                    <div class="msg_success">
-                        <%= req.session.flash.success%>
-                    </div>
-                    <% } %>
+                    <% include ../global/global_messages.ejs%>
                     <form class="form-login" method="POST" action="/login">
                         <fieldset>
                             <legend>

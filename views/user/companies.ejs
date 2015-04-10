@@ -1,7 +1,58 @@
-<link href="/stylus/select2.min.css" rel="stylesheet" media="screen">
-<link href="/stylus/DT_bootstrap.css" rel="stylesheet" media="screen">
+<link href="/styles/sweet-alert.css" rel="stylesheet" media="screen">
+<link href="/styles/ie9.css" rel="stylesheet" media="screen">
+<link href="/styles/toastr.min.css" rel="stylesheet" media="screen">
+
+<link href="/styles/select2.min.css" rel="stylesheet" media="screen">
+<link href="/styles/DT_bootstrap.css" rel="stylesheet" media="screen">
 <script src="/js/jquery.dataTables.min.js"></script>
 <script src="/js/table-data.js"></script>
+
+<script src="/js/sweet-alert.min.js"></script>
+<script src="/js/toastr.min.js"></script>
+
+<script src="/js/ui-notifications.js"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        UINotifications.init();
+        jQuery('a[id ^= delete_customer_]').click(function () {
+            var thisID = $(this).attr('id');
+            var breakID = thisID.split('_');
+            var record_id = breakID[2];
+            swal({
+                title: "Are you sure?",
+                text: "Company will be deleted permanently",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'Yes, delete it!',
+                closeOnConfirm: false,
+            },
+                    function () {
+                        $.ajax({
+                            type: 'get',
+                            url: '/admin/companies/delete/',
+                            data: 'id=' + record_id,
+                            success: function (data) {
+                                if (data.succ == '1') {
+                                    swal({
+                                        title: "Deleted!",
+                                        text: "Customer has been deleted!",
+                                        type: "success",
+                                        showCancelButton: false,
+                                        confirmButtonColor: '#d6e9c6',
+                                        confirmButtonText: 'OK',
+                                        closeOnConfirm: false,
+                                    }, function () {
+                                        window.location.reload();
+                                    });
+                                }
+                            }
+                        });
+                    });
+        });
+    });
+</script>
 <div id="app">
     <!-- sidebar -->
     <% include ../global/sidebar.ejs%>
@@ -15,10 +66,13 @@
                 <section id="page-title">
                     <div class="row">
                         <div class="col-sm-8">
-                            <h1 class="mainTitle">Drivers List</h1>                            
+                            <h1 class="mainTitle">Companies List</h1>                            
                         </div>                        
                     </div>
                 </section>
+                <!-- Global Messages -->
+                <% include ../global/global_messages.ejs%>
+                <!-- Global Messages End -->
                 <div class="container-fluid container-fullw bg-white">
                     <div class="row">
                         <div class="col-md-12">                           
@@ -44,8 +98,7 @@
                                         <td><%= user.updatedAt%></td>
                                         <td><div class="visible-md visible-lg hidden-sm hidden-xs">
                                                 <a href="#" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
-                                                <a href="#" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Share"><i class="fa fa-share"></i></a>
-                                                <a href="#" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+                                                <a href="#" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove" id="delete_customer_<%= user.id%>"><i class="fa fa-times fa fa-white"></i></a>
                                             </div>
                                         </td>
                                         <!--<td class="hidden-xs">W3C,
@@ -57,7 +110,7 @@
                                     <%})%>
                                     <% }else{%>
                                     <tr>
-                                        <td>No Driver Registered.</td>
+                                        <td colspan="4">No Company Registered.</td>
                                     </tr>
                                     <%}%>
                                 </tbody>
