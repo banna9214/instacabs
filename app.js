@@ -22,8 +22,6 @@
 // no matter where we actually lift from.
 process.chdir(__dirname);
 
-console.log( __dirname );
-
 var passport = require('passport');
 //var express       = require('express');
 //var expressSession = require('express-session');
