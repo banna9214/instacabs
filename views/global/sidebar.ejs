@@ -1,0 +1,71 @@
+<div class="sidebar app-aside" id="sidebar">
+    <div class="sidebar-container perfect-scrollbar">
+        <nav>
+            <!-- start: SEARCH FORM -->
+            <div class="search-form">
+                <a class="s-open" href="#">
+                    <i class="ti-search"></i>
+                </a>
+                <form class="navbar-form" role="search">
+                    <a class="s-remove" href="#" target=".navbar-form">
+                        <i class="ti-close"></i>
+                    </a>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <button class="btn search-button" type="submit">
+                            <i class="ti-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <!-- end: SEARCH FORM -->
+            <!-- start: MAIN NAVIGATION MENU -->
+            <div class="navbar-title">
+                <span>Main Navigation</span>
+            </div>
+            <ul class="main-navigation-menu">
+                <li class="<%= tab_open=='dashboard' ? 'active open' : '' %>">
+                    <a href="/admin/dashboard">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <i class="ti-home"></i>
+                            </div>
+                            <div class="item-inner">
+                                <span class="title"> Dashboard </span>
+                            </div>
+                        </div>
+                    </a>
+                </li> 
+                <li class="<%= tab_open=='user' ? 'active open' : '' %>">
+                    <a href="javascript:void(0)">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <i class="ti-settings"></i>
+                            </div>
+                            <div class="item-inner">
+                                <span class="title"> User Administration</span><i class="icon-arrow"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/admin/drivers">
+                                <span class="title"> Drivers </span>
+                            </a>
+                        </li>        
+                        <li>
+                            <a href="/admin/customers">
+                                <span class="title"> Customers </span>
+                            </a>
+                        </li>   
+                        <li>
+                            <a href="/admin/companies">
+                                <span class="title"> Companies </span>
+                            </a>
+                        </li>   
+                    </ul>
+                </li>
+            </ul>                
+        </nav>
+    </div>
+</div>
