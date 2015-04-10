@@ -1,8 +1,12 @@
 {
   "name": "proj",
   "private": true,
-  "version": "0.10.x",
+  "version": "0.0.1",
   "description": "a Sails application",
+"engines": {
+    "node": "0.10.x",
+    "npm": "1.4.x"
+  },
   "keywords": [],
   "dependencies": {
     "ejs": "~0.8.4",
