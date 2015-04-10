@@ -22,6 +22,13 @@
 // no matter where we actually lift from.
 process.chdir(__dirname);
 
+var passport = require('passport');
+//var expressSession = require('express-session');
+//app.use(expressSession({secret: 'mySecretKey'}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 // Ensure a "sails" can be located:
 (function() {
   var sails;
