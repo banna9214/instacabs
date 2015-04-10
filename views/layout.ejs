@@ -1,58 +1,94 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Instacab Administrator panel  - <%- title %></title>
-        <!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <meta content="" name="description" />
-        <meta content="" name="author" />
-        <!-- end: META -->
-        <!-- start: GOOGLE FONTS -->
-        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-        <!-- end: GOOGLE FONTS -->
-        <!-- start: MAIN CSS -->
-        <link rel="stylesheet" href="/styles//bootstrap.min.css">
-        <link rel="stylesheet" href="/styles//font-awesome.min.css">
-        <link rel="stylesheet" href="/styles/themify-icons.min.css">
-        <link href="/styles/animate.min.css" rel="stylesheet" media="screen">
-        <link href="/styles/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
-        <link href="/styles/switchery.min.css" rel="stylesheet" media="screen">
-        <!-- end: MAIN CSS -->
-        <!-- start: CLIP-TWO CSS -->
-        <link rel="stylesheet" href="/styles/styles.css">
-        <link rel="stylesheet" href="/styles/plugins.css">
-        <link rel="stylesheet" href="/styles/themes/theme-1.css" id="skin_color" />
+  <head>
+    <title>New Sails App</title>
 
-        <script src="/js/jquery.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-        <script src="/js/modernizr.js"></script>
-        <script src="/js/jquery.cookie.js"></script>
-        <script src="/js/perfect-scrollbar.min.js"></script>
-        <script src="/js/switchery.min.js"></script>
-        <!-- end: MAIN JAVASCRIPTS -->
-        <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-        <script src="/js/Chart.min.js"></script>
-        <script src="/js/jquery.sparkline.min.js"></script>
-        <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-        <!-- start: CLIP-TWO JAVASCRIPTS -->
-        <script src="/js/main.js"></script>
-        <!-- start: JavaScript Event Handlers for this page -->
-        <script>
-            jQuery(document).ready(function () {
-                Main.init();
-            });
-        </script>
-        <!-- end: CLIP-TWO CSS -->
-        <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
-        <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    </head>
+    
+    <!--  
+        Stylesheets and Preprocessors
+        ==============================
 
-    <body>
-        <%- body %>
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
 
-    </body>
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+        
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+            
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/importer.css">
+    <!--STYLES END-->
+  </head>
+
+  <body>
+    <%- body %>
+
+
+
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+        
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    
+    <!--TEMPLATES END-->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can 
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, files in your `assets/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+      
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+          
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <!--SCRIPTS END-->
+  </body>
 </html>
