@@ -62,6 +62,10 @@ module.exports.connections = {
         database: 'instacab',
         schema: true
     },
+	 heroku_mongolab : {
+	     adapter   : "sails-mongo",
+	     url       : "mongodb://heroku_app35700832:gme97auju2mhen0h4aqhg1df06@ds061631.mongolab.com:61631/heroku_app35700832?replicaSet=rs-ds061631"
+	  }
     /***************************************************************************
      *                                                                          *
      * PostgreSQL is another officially supported relational database.          *
