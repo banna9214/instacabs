@@ -65,9 +65,19 @@ module.exports.connections = {
     // database: 'your_mongo_db_name_here'
   },
 
-    mongo: {
+
+mongo: {
+    adapter: 'sails-mongo',
+    host: 'ds061631.mongolab.com',
+    port: 61631,
+     user: 'heroku_app35700832',
+     database: 'heroku_app35700832'
+  },
+    mongoddd: {
       module : 'sails-mongo',
-      url: process.env.MONGOLAB_URI
+      url: process.env.MONGOLAB_URI,
+	pool: false,
+	  ssl: true
     },
 
   /***************************************************************************
