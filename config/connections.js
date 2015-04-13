@@ -69,8 +69,9 @@ module.exports.connections = {
 
     mongo: {
       module : 'sails-mongo',
-      url: process.env.MONGOLAB_URI,
-	 safe: true
+	url: 'mongodb://heroku_app35700832:gme97auju2mhen0h4aqhg1df06@ds061631.mongolab.com:61631/heroku_app35700832',
+      //url: process.env.MONGOLAB_URI,
+      safe: true
     },
 
   /***************************************************************************
